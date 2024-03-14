@@ -1,11 +1,11 @@
 # EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
 # DATE :
-# NAME :
-# ROLLNUMBER :
-# DEPARTMENT
-## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+# NAME : TAMILPAGALAVAN
+# ROLLNUMBER : 212223040224
+# DEPARTMENT:CSE
+# AIM:To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+
  
 ### COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
@@ -79,12 +79,41 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
+ *your roll no :212223040224
+ * your name :TAMILPAGALAVAN
+ * department and year:CSE 1ST YEAR
+```
+ int fsr;
+int LED=7;
+void setup()
+{
+pinMode(LED, OUTPUT);
+Serial.begin(9600);
+}
+void loop()
+{
+fsr=analogRead(A0);
+Serial.print("raw value=");
+Serial.println(fsr);
+delay(1000);
+float m;
+m=map(fsr,0,159,0,10);
+Serial.print("MAPPED value=");
+Serial.println(m);
+delay(1000);
+if(m>5)
+{
+digitalWrite(LED,HIGH);
+delay(500);
+digitalWrite(LED,LOW);
+delay(500);
+}
+}
+```
  
- 
- 
+### SCHEMATIC VIEW:
+![Screenshot 2024-03-14 104828](https://github.com/Pagalavankesavan/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/144870610/40370151-ed63-4ff0-b493-809c36a27524)
+
  
  
  
@@ -102,6 +131,8 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### TABLE -02 standard deviation table 
+![WhatsApp Image 2024-03-14 at 8 55 46 AM](https://github.com/Pagalavankesavan/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/144870610/6f6fd372-a0cf-4d3f-88c7-c860e11c6d5e)
+
 ### Population Standard Deviation
 The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
 
